@@ -16,7 +16,7 @@ function App() {
     
     console.log(response)
 
-  }
+  };
 
   useEffect(()=>{
     loadStudents()
