@@ -8,7 +8,7 @@ function Medicen({id,name,description   })
 {
   const navigate=useNavigate();
  const deleteMedicen =async(id)=>{
- const response =await axios.delete(`https://medical-backend-5a69.onrender.com/${id}`)
+ const response =await axios.delete(`${process.env.REACT_APP_API_URL}/medicens/${id}`)
  window.location.reload();
  }
 

@@ -18,7 +18,7 @@ const [ medicen,setMedicen] = useState({
 
 const addMedicen =async()=>{
   try{
-  const response = await axios.post("https://medical-backend-5a69.onrender.com/medicens",{id:medicen.id,name:medicen.name,description:medicen.description})
+  const response = await axios.post(`${process.env.REACT_APP_API_URL}/medicens`,{id:medicen.id,name:medicen.name,description:medicen.description})
  toast.success(response?.data?.message);
   
 
@@ -68,7 +68,7 @@ const addMedicen =async()=>{
           addMedicen()
         }}> Add Medicen</button>
   <Link to={"/"}>
-  <img src={Homeimg} className='Home-img-addpage'/>
+  <img src={Homeimg} className='Home-img-addpage' alt='home-icon'/>
   </Link>
   <Toaster/>
     </div>

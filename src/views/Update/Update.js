@@ -18,7 +18,7 @@ const [ medicen,setMedicen] = useState({
 })
 
 const updateMedicen = async(id)=>{
-  const response = await axios.get(`https://medical-backend-5a69.onrender.com/medicens/${id}`)
+  const response = await axios.get(`${process.env.REACT_APP_API_URL}/medicens/${id}`)
 
   setMedicen(response.data.data);
 }
@@ -30,7 +30,7 @@ useEffect (()=>{
 
 const addMedicen =async()=>{
   try{
-  const response = await axios.put(`https://medical-backend-5a69.onrender.com/medicens/${id}`,{id:medicen.id,name:medicen.name,description:medicen.description})
+  const response = await axios.put(`${process.env.REACT_APP_API_URL}/medicens/${id}`,{id:medicen.id,name:medicen.name,description:medicen.description})
  toast.success(response?.data?.message);
   
 

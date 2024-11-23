@@ -7,7 +7,7 @@ function Detail() {
     const {id} = useParams();
     const [medicen,setMedicen] = useState({})
     const loadMedicenDetails = async(id)=>{
-     const response = await axios.get(`https://medical-backend-5a69.onrender.com/medicens/${id}`)
+     const response = await axios.get(`${process.env.REACT_APP_API_URL}/medicens/${id}`)
      setMedicen(response.data.data)
     }
 

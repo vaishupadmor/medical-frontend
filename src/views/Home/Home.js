@@ -10,7 +10,7 @@ function App() {
 
   const loadStudents = async()=>{
     console.log('loading medices')
-    const response = await axios.get('https://medical-backend-5a69.onrender.com/medicens');
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/medicens`);
 
       setMedicens(response.data.data);
     
@@ -44,7 +44,7 @@ function App() {
         medicens.length===0&&<h1 style={{textAlign:'center'}}> NO medicen found</h1>
       }
 
-     <Link to={"/add"}>  <img src={addMedicen} className='icon-add-image'/></Link>
+     <Link to={"/add"}>  <img src={addMedicen} className='icon-add-image' alt='add-icon'/></Link>
     </div>
   )
 }
