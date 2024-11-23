@@ -8,7 +8,7 @@ function Medicen({id,name,description   })
 {
   const navigate=useNavigate();
  const deleteMedicen =async(id)=>{
- const response =await axios.delete(`http://localhost:5001/medicens/${id}`)
+ const response =await axios.delete(`https://medical-backend-5a69.onrender.com/${id}`)
  window.location.reload();
  }
 
@@ -29,6 +29,12 @@ navigate(`/detail/${id}`)
 e.stopPropagation();
 console.log(`Delete ${name}`)
     }}>Delete </button>
+
+<button type='btn' className='Edit-btn' onClick={(e)=>{
+     navigate(`/update/${id}`)
+e.stopPropagation();
+
+    }}>Edit </button>
     </div>
     
     </div>

@@ -10,7 +10,7 @@ function App() {
 
   const loadStudents = async()=>{
     console.log('loading medices')
-    const response = await axios.get('http://localhost:5001/medicens');
+    const response = await axios.get('https://medical-backend-5a69.onrender.com/medicens');
 
       setMedicens(response.data.data);
     

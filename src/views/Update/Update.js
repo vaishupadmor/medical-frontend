@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import "./Add.css"
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import "./Update.css"
 import Homeimg from "./../../assets/home-image.png"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -9,24 +10,30 @@ function Add() {
   //const [id ,setId] = useState('');
   //const [name,setName] = useState('');
   //const [description,setDescription] = useState('');
-  
+const {id} = useParams();
 const [ medicen,setMedicen] = useState({
   id:"",
   name:"",
   description:""
 })
 
+const updateMedicen = async(id)=>{
+  const response = await axios.get(`https://medical-backend-5a69.onrender.com/medicens/${id}`)
+
+  setMedicen(response.data.data);
+}
+
+useEffect (()=>{
+  updateMedicen(id)
+
+},[id])
+
 const addMedicen =async()=>{
   try{
-  const response = await axios.post("https://medical-backend-5a69.onrender.com/medicens",{id:medicen.id,name:medicen.name,description:medicen.description})
+  const response = await axios.put(`https://medical-backend-5a69.onrender.com/medicens/${id}`,{id:medicen.id,name:medicen.name,description:medicen.description})
  toast.success(response?.data?.message);
   
 
- setMedicen({
-  id:"",
-  name:"",
-  description:""
- });
  
 
 }
@@ -38,7 +45,7 @@ const addMedicen =async()=>{
 
   return (
     <div>
-        <h1 className='add-page-heading'> Add medicen</h1>
+        <h1 className='add-page-heading'> Update medicen</h1>
         
         <div className='medicen-form'>
             <input type='text' placeholder='id' className='user-input' value={medicen.id} 
@@ -47,7 +54,8 @@ const addMedicen =async()=>{
               ...medicen, 
               id : e.target.value
              } 
-              )}/>
+              )}
+              disabled/>
             <input type='text' placeholder='name' className='user-input' value={medicen.name}  
              onChange={(e)=> setMedicen(
              {
@@ -66,7 +74,7 @@ const addMedicen =async()=>{
         </div>
         <button type='button' className='medicen-add-btn' onClick={()=>{
           addMedicen()
-        }}> Add Medicen</button>
+        }}> Update Medicen</button>
   <Link to={"/"}>
   <img src={Homeimg} className='Home-img-addpage'/>
   </Link>

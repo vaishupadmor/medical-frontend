@@ -32,3 +32,15 @@ cursor: pointer;
 border: none;
 padding: 7px 20px;
 }
+
+.Edit-btn{
+  position: absolute;
+  bottom: 10px;
+  right: 120px;
+  color: antiquewhite;
+  background-color: rgb(235, 162, 68);
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  padding: 7px 20px;
+  }
