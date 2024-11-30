@@ -10,6 +10,5 @@
 }
 .medicencard-home{
     height: 80vh;
-    background-color: grey;
     overflow-y: scroll;
 }

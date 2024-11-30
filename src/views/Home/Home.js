@@ -8,18 +8,14 @@ import { Link } from 'react-router-dom'
 function App() {
   const [medicens,setMedicens] = useState([])
 
-  const loadStudents = async()=>{
-    console.log('loading medices')
+  const loadMedicens = async()=>
+  {
     const response = await axios.get(`${process.env.REACT_APP_API_URL}/medicens`);
-
-      setMedicens(response.data.data);
-    
     console.log(response)
-
-  };
-
+    setMedicens(response.data.data);
+  }
   useEffect(()=>{
-    loadStudents()
+    loadMedicens()
   },[])
 
   return (

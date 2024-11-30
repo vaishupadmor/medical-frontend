@@ -15,7 +15,7 @@ function Detail() {
 loadMedicenDetails(id)
     },[id])
   return (
-    <div>
+    <div className='detailpage-body'>
         <h1 className='detail-page'> Detail page</h1>
        <div className='detail-page-info'>
        <h2> id:{id}</h2>

@@ -25,7 +25,9 @@
 
 .medicen-form{
     margin: 20px auto;
-    width: 600px;
+    position: relative;
+    left:70px;
+    width: 550px;
 }
 .Home-img-addpage{
     position: fixed;
